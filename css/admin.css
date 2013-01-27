@@ -1,0 +1,113 @@
+/**
+*   Cascade Style Sheet for admin management
+*   @author: Anton Zekeriev Rodin
+*   @version: 1.0
+*/
+body {background: #b6b6b6;font-family: 'Lucida Grande', 'Verdana', 'Geneva', 'Sans-serif';font-size: 12px;}
+a, p, div, td, tr, table, ul, li, ol, h1, h2, h3, h4, h5, img, input, textarea, select {margin:0;padding:0;border:0;}
+ul {list-style:none;}
+
+.error {margin:5px 0; padding: 8px; padding-left: 50px;  color: #ff0000; background: #f0f0f0 url("../img/warning32.png") top left no-repeat;font-weight:bold;}
+
+#header, #content, #footer, #header-inside, #footer-inside, #menu-inside {overflow: hidden;}
+#content, #header-inside, #footer-inside, #menu-inside {width:1000px;margin:0 auto;}
+
+#header {width:100%; height:100px; background: #828282; border-bottom: 3px solid black;}
+
+    #header-inside {}
+        #header-inside-left {width: 600px; float: left;}
+            #header-inside-left h1 {margin-top:20px; font-style: italic; color: #aaa; text-shadow: 0 1px 0 black;}
+            #header-inside-left p {font-style: italic; color: #ccc; font-weight:bold;}
+        #header-inside-right {width: 400px; float: left;}
+            #header-inside-right .logout {margin-top: 30px;padding: 7px; padding-left:40px; float: right; width: 200px;
+                                          border: 10px solid #f0f0f0; -moz-border-radius: 10px; -webkit-border-radius: 10px;
+                                          background: #f0f0f0 url('../img/user32.png') top left no-repeat;}
+
+            #header-inside-right p {font-weight: bold;font-size: 10px;}
+            #header-inside-right a {font-weight: bold;font-size: 10px;text-decoration: none;color: #348075;}
+
+#menu {width: 100%;background: #000;}
+    #menu a {text-decoration: none;}
+
+    #menu-inside {}
+        #main-menu {}
+            #main-menu li {float: left; margin-top: 5px; margin-right: 4px;}
+            #main-menu a {padding:5px 10px; display:block; color: #666; text-align:center; background:#f0f0f0;
+                         -moz-border-radius: 3px; -webkit-border-radius: 3px;}           
+            #main-menu a:hover {background:#b6b6b6;color: #fff;}
+            #main-menu .active {background:#b6b6b6;color: #fff;}
+
+        #sub-menu {clear:both;}
+            #sub-menu li {float: left; margin-bottom: -3px; margin-top: 8px; margin-right: 4px;
+                          }
+            #sub-menu a {display: block; padding: 3px; background-color: #f0f0f0; color: #666;
+                         border: 3px solid #f0f0f0;-moz-border-radius: 3px; -webkit-border-radius: 3px;}
+            #sub-menu .active {display: block; padding: 3px; background-color: #b6b6b6; color: #fff; border-color: #b6b6b6;}
+            #sub-menu a:hover {background-color: #b6b6b6; color: #fff; border-color: #b6b6b6;}
+
+
+.slide
+{
+  float:left;
+  margin-right:10px;
+  padding:20px;
+  width:120px;
+}
+
+#slide_container
+{
+  margin: 0px;
+  background: #f0f0f0;
+  width:100%;
+  height:auto;
+}
+
+#content {clear: both; margin: 10px auto; background: #f0f0f0;
+          border: 10px solid #f0f0f0; -moz-border-radius: 10px; -webkit-border-radius: 10px;}
+
+          #content h1 {margin:10px 0; border-bottom: 2px solid black; font-size: 18px; text-shadow: 0 2px 0 white;}
+          #content p {margin: 5px; text-align: justify;}
+          #content a {text-decoration: none; color: #348075;}
+
+          #content table {width:1000px; margin: 10px auto;}
+          #content table th {padding: 10px; background: #000; color: #fff; text-align: left;}
+          #content table tr {background: #fff;}
+          #content table td {padding: 10px; color: #000; text-align: left;}
+          #content .control_panel li {display: inline;}
+          #content .control_panel {width:148px;text-align: center;}
+          #content .pagination {width:900px;margin:10px auto;text-align:center;}
+            #content .pagination a {margin:3px;padding:4px 7px;text-decoration:none;font-size:10px;background:#fff;border:1px solid #b6b6b6;color:black;}
+            #content .pagination a:hover, .pagination strong {margin:3px;padding:4px 7px;text-decoration:none;font-size:10px;background:#f0f0f0;border:1px solid #b6b6b6;color:#000;}
+
+         /* Form styles inside the content div */
+         #content label {margin:5px; margin-right: 10px; width: 150px; height:30px; float:left; text-align: right; font-weight: bold;}
+         #content form p {clear: both;}
+         #content .small input {margin:0;padding:5px;width:400px;font-weight:bold;border: 2px solid #b6b6b6;}
+         #content .small select {margin:0;padding:5px;width:400px;font-weight:bold;border: 2px solid #b6b6b6;}
+         #content .small textarea {margin:0;padding:5px;width:400px;height:200px;border: 2px solid #b6b6b6;}
+         #content .medium input {margin:0;padding:5px;width:600px;font-weight:bold;border: 2px solid #b6b6b6;}
+         #content .medium textarea {margin:0;padding:5px;width:600px;height:200px;border: 2px solid #b6b6b6;}
+         #content .checkbox input {margin:5px;}
+         #content .green button {margin-left:200px;padding: 6px;width:100px;border: none;
+                                -moz-border-radius: 4px;-webkit-border-radius: 4px; background: #348075; color:white;
+                                box-shadow: 0 1px 0 white; -moz-box-shadow: 0 1px 0 white; -webkit-box-shadow: 0 1px 0 white;}
+
+         #content .green button:hover {background: #287368;cursor: pointer;}
+
+             /* Content left and content right*/
+             #content-left {width:600px;float:left;}
+                #content-left .upload-form {width: 400px; padding: 20px; margin:50px auto; background: #fff;border: 10px solid white; -moz-border-radius: 10px; -webkit-border-radius: 10px;}
+             #content-right {width:400px;float:left;}
+                #content-right .image-canvas {width:370px;margin:10px auto; background:#b6b6b6;border: 10px solid #b6b6b6; -moz-border-radius: 10px; -webkit-border-radius: 10px;}
+                #content-right .image-canvas img {width:370px;}
+                #content-right .text-canvas {width:370px;margin:10px auto; background:#fff;border: 10px solid #fff; -moz-border-radius: 10px; -webkit-border-radius: 10px;}
+                #content-right .text-canvas h3 { font-size: 14px; font-style: italic;}
+
+#footer {width:100%; height:100px; clear:both; background: #828282; border-top: 3px solid black;}
+    #footer-inside {}
+        #footer-inside p {margin-top:30px; font-size: 10px; color:#ccc; font-style: italic; padding:3px; font-weight: bold;}
+        #footer-inside a {text-decoration: none; color: #b3a995;}
+        #footer-inside a:hover {text-decoration: underline;}
+    #footer-inside-left {width:700px;float:left;}
+    #footer-inside-right {width:300px;float:left;}
+        #footer-inside-right p {text-align:right;}
