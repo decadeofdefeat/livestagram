@@ -1,7 +1,7 @@
 livestagram
 ===========
 
-Instagram real time feed built on CodeIgniter.
+Instagram real-time feed built on CodeIgniter.
 
 I wanted to quickly build an application in PHP that can display a live feed of Instagram photos based on a specific hashtag. I set up an Instagram Subscription to a hashtag, and when Instagram hits my callback page, I search for new photos with the tag and enter them in my database. On the frontend page I'm using AJAX long polling of my server to check for new data.
 
@@ -31,3 +31,5 @@ Slides JS - https://github.com/nathansearles/Slides
 CodeIgniter Instagram Library - https://github.com/ianckc/CodeIgniter-Instagram-Library  
 Clear Admin for simple admin panel to moderate photos - https://github.com/antonrodin/Clear-Admin
 
+Special thanks to Greg Thompson for his helpful blog post:  
+http://thegregthompson.com/instagram-real-time-api-php/
