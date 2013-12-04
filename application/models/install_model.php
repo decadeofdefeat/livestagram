@@ -4,7 +4,7 @@
  * @author Anton Zekeriev Rodin
  */
 class Install_model extends CI_Model {
-    
+
     public function  __construct() {}
 
     public function set_tables() {
@@ -27,7 +27,7 @@ class Install_model extends CI_Model {
             CREATE TABLE IF NOT EXISTS `instagram_auth` (
                 `id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
                  `access_token` VARCHAR( 200 ) NOT NULL ,
-                PRIMARY KEY (  `id` ) 
+                PRIMARY KEY (  `id` )
             ) ENGINE = MYISAM DEFAULT CHARSET = utf8;
             ';
         $this->db->query($query);
@@ -36,7 +36,7 @@ class Install_model extends CI_Model {
             CREATE TABLE IF NOT EXISTS `instagram_hashtag` (
                 `id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
                  `hashtag` VARCHAR( 200 ) NOT NULL ,
-                PRIMARY KEY (  `id` ) 
+                PRIMARY KEY (  `id` )
             ) ENGINE = MYISAM DEFAULT CHARSET = utf8;
             ';
         $this->db->query($query);
@@ -56,7 +56,7 @@ class Install_model extends CI_Model {
                 `low_res` TEXT NOT NULL ,
                 `thumb` TEXT NOT NULL ,
                 `banned` INT(11) NOT NULL ,
-                PRIMARY KEY (  `id` ) 
+                PRIMARY KEY (  `id` )
             ) ENGINE = MYISAM DEFAULT CHARSET = utf8;
             ';
         $this->db->query($query);
@@ -67,8 +67,8 @@ class Install_model extends CI_Model {
 
         $insert_data = array(
             'username' => 'admin',
-            'password' => md5('crosspoint500'),
-            'email_address' => 'jvacanti@thechapel.com'
+            'password' => md5('password'),
+            'email_address' => 'joe@email.com'
         );
         $this->db->insert('instagram_users', $insert_data);
 
