@@ -21,6 +21,9 @@
 $config['instagram_client_name']	= '';
 $config['instagram_description']	= '';
 
+// a quick configuration for the Subscribe controller (required)
+$config['website_callback_url']	= 'http://yoursite.com/livestagram/callback/';
+
 // these are required
 $config['instagram_client_id']		= '';
 $config['instagram_client_secret']	= '';

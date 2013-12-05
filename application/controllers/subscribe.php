@@ -12,7 +12,7 @@ class Subscribe extends CI_Controller {
 		if($this->input->post('hashtag'))
 		{
 	
-			$this->load->model( 'Subscribe_model' );
+			$this->load->model( 'subscribe_model' );
 			$this->load->library('instagram_api');
 			$this->load->config('Instagram_api');
 
@@ -25,8 +25,7 @@ class Subscribe extends CI_Controller {
 			$aspect = 'media';
 			$verify_token='';
 
-			/// change $callback_url to your website address
-			$callback_url = 'http://yoursite.com/livestagram/callback/';
+			$callback_url = $this->config->item('website_callback_url');
 
 
 
@@ -68,7 +67,7 @@ class Subscribe extends CI_Controller {
 					'hashtag' => $this->input->post('hashtag')
 				);
 
-				$this->Subscribe_model->set_hashtag( $data );
+				$this->subscribe_model->set_hashtag( $data );
 
 				// success!
 				// go to home page now.

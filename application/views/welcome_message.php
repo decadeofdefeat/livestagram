@@ -38,7 +38,7 @@
 			
 			$.ajax({
 				type: 'POST',
-				url: "http://yoursite.com/livestagram/poll/get_new_photos",
+				url: "<?php echo base_url(); ?>poll/get_new_photos",
 				data: { time: timestamp },
 				async: true,
 				cache: false,

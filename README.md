@@ -18,6 +18,18 @@ I realized I forgot a few things when I first committed, namely the htaccess fil
 ** If you can't get the .htaccess file to work, then just append index.php to the URL, like http://yoursite.com/livestagram/index.php/install/ 
 
 
+Live Demonstration with hashtag #superman  
+-------------------------  
+
+Frontend:  
+http://markgoldsmith.me/livestagram/   
+
+Admin:  
+http://markgoldsmith.me/livestagram/admin/login/  
+User: admin  
+Pass: password***  
+
+
 Steps to get the app going  
 -------------------------------  
 To install the database tables:  

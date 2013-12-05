@@ -17,7 +17,7 @@
                 
                 $.ajax({
                     type: 'POST',
-                    url: "http://yoursite.com/livestagram/index.php/poll/admin_get_new_photos",
+                    url: "<?php echo base_url(); ?>poll/admin_get_new_photos",
                     data: { time: timestamp },
                     async: true,
                     cache: false,
