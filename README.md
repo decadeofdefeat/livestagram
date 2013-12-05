@@ -10,20 +10,42 @@ This application allows for an adminstrator to "ban" photos using a simple admin
 This project was built as a subdirectory to a website, so it would be yoursite.com/livestagram. Obviously this can be changed to be a root directory.  
 
 
+// Update 12.04.2013
+ 
+I realized I forgot a few things when I first committed, namely the htaccess file for redirecting the index.php page.
+I also fixed some issues with the main Subscribe model that wasn't loading properly.
+
+** If you can't get the .htaccess file to work, then just append index.php to the URL, like http://yoursite.com/livestagram/index.php/install/ 
+
+
 To install the database tables:  
 http://yoursite.com/livestagram/install/  
 
+To create an Instagram client
+http://instagram.com/developer/clients/manage/
 
 To set the configuration for your Instagram client  
-Modify application/config/Instagram_api.php  
-
+Modify application/config/Instagram_api.php, add the credentials from Instagram Developer page 
 
 To authenticate your Instagram account:  
 http://yoursite.com/livestagram/connect/  
 
-
 To set up a new hashtag:  
 http://yoursite.com/livestagram/subscribe/  
+
+
+
+
+// Check your hashtag subscriptions 
+GET https://api.instagram.com/v1/subscriptions?client_secret=CLIENT-SECRET&client_id=CLIENT-ID
+This is easy to do in the Instagram API console - http://instagram.com/developer/api-console/
+
+// To delete all hashtags subscriptions
+DELETE https://api.instagram.com/v1/subscriptions?client_secret=CLIENT-SECRET&object=all&client_id=CLIENT-ID
+In API console - http://instagram.com/developer/api-console/
+
+// Read more about Instagram Real-time photo updates here:
+http://instagram.com/developer/realtime/
 
 
 Thanks to the developers of these libraries which I utilized:  

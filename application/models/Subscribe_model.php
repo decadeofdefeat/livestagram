@@ -2,15 +2,14 @@
 
 class Subscribe_model extends CI_Model {
 
-	function set_access_token( $data )
+	public function set_access_token( $data )
 	{
 		$this->db->insert('instagram_auth', $data);	
 	}
 
-	function get_access_token()
+	public function get_access_token()
 	{
 		$token = "";
-	
 		$query = $this->db->query('SELECT * FROM instagram_auth ORDER BY id DESC LIMIT 1');
 
 		if ($query->num_rows() > 0)
@@ -28,12 +27,12 @@ class Subscribe_model extends CI_Model {
 
 
 
-	function set_hashtag( $data )
+	public function set_hashtag( $data )
 	{
 		$this->db->insert('instagram_hashtag', $data);	;
 	}
 
-	function get_hashtag()
+	public function get_hashtag()
 	{
 		$hash = "";
 	
@@ -54,7 +53,7 @@ class Subscribe_model extends CI_Model {
 
 
 
-	function min_id(){
+	public function min_id(){
 	
 		$min_id = null;
 	
@@ -73,7 +72,7 @@ class Subscribe_model extends CI_Model {
 
 	}
 
-	function start_polling( ) {
+	public function start_polling( ) {
 
 	    $time = $this->input->post( 'time' );
 	    if( !is_numeric( $time ) ) {
@@ -100,7 +99,7 @@ class Subscribe_model extends CI_Model {
 	          
 	            foreach($query->result_array() as $row)
 			    {    
-			         $photos[] = $row
+			         $photos[] = $row;
 			    }
 	            
 	        }
@@ -113,7 +112,7 @@ class Subscribe_model extends CI_Model {
 
 
 
-	function admin_start_polling( ) {
+	public function admin_start_polling( ) {
 
 	    $time = $this->input->post( 'time' );
 	    if( !is_numeric( $time ) ) {
@@ -145,7 +144,7 @@ class Subscribe_model extends CI_Model {
 	    }
 	}
 
-	function admin_list_all()
+	public function admin_list_all()
 	{
 		 $this->db->select( '*' );
 	     $this->db->from( 'instagram_feed' );
@@ -169,7 +168,7 @@ class Subscribe_model extends CI_Model {
         return $photos;
 	}
 
-	function admin_ban_photo( $id )
+	public function admin_ban_photo( $id )
 	{
 		$query = $this->db->query('UPDATE instagram_feed SET banned = 1 WHERE id = "'.$id.'"');
 
@@ -177,8 +176,8 @@ class Subscribe_model extends CI_Model {
 
 	}
 
-	// function for live frontend feed
-	function list_all()
+	// public function for live frontend feed
+	public function list_all()
 	{
 		 $this->db->select( '*' );
 	     $this->db->from( 'instagram_feed' );
@@ -187,7 +186,7 @@ class Subscribe_model extends CI_Model {
 		 $this->db->where( "add_time < UNIX_TIMESTAMP(DATE_SUB(NOW(),INTERVAL 2 MINUTE))" );
 
 	     $this->db->where( 'banned', 0 );
-	     $this->db->limit( 4 );
+	     $this->db->limit( 10 );
 	     $query = $this->db->get();
 
 	     $photos = array();
@@ -205,7 +204,7 @@ class Subscribe_model extends CI_Model {
         return $photos;
 	}
 
-	function add_tag($data){
+	public function add_tag($data){
 		
 		$query = $this->db->get_where('instagram_feed', array('media_id'=>$data['media_id']));
 		if($query->num_rows() > 0){

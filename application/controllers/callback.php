@@ -2,34 +2,56 @@
 
 class Callback extends CI_Controller {
 
-	
+	public function  __construct() {
+        parent::__construct();
+        $this->load->model( 'subscribe_model');
+    }
+
 	public function get_token()
 	{
-		$this->load->model( 'Subscribe_model' );
-		$min_id = $this->Subscribe_model->get_access_token();
+		$min_id = $this->subscribe_model->get_access_token();
+	}
+
+	public function test()
+	{
+		echo "Token is ".$this->subscribe_model->get_access_token();
 	}
 
 	public function redirect_uri()
 	{
+
 		if(isset($_GET['code']) && $_GET['code'] != '') {
-			
-			$this->load->model( 'Subscribe_model' );
+
 			$this->load->library('instagram_api');
 
 			$auth_response = $this->instagram_api->authorize($_GET['code']);
 
 
-			$oauth_data = array(
-				'access_token' => $auth_response->access_token,
-			);
+			if( isset($auth_response->access_token) )
+			{
 
-			$this->Subscribe_model->set_access_token( $oauth_data );
+				$oauth_data = array(
+					'access_token' => $auth_response->access_token,
+				);
 
-			// Set the instagram library access token variable
-			$this->instagram_api->access_token = $this->Subscribe_model->get_access_token();
+				$this->subscribe_model->set_access_token( $oauth_data );
 
-			// redirect to main page
-			redirect('/welcome');
+				// Set the instagram library access token variable
+				$this->instagram_api->access_token = $this->subscribe_model->get_access_token();
+
+				// redirect to main page
+				redirect('/welcome');
+
+			}
+			else
+			{
+			
+				// Error of 400 or something else
+				 echo $auth_response->error_type;
+    			 echo (isset($auth_response->error_message) ? ': '.$auth_response->error_message : '');
+			}
+
+
 		}
 		else
 		{
@@ -52,7 +74,7 @@ class Callback extends CI_Controller {
 		}
 		else
 		{
-			$this->load->model( 'Subscribe_model' );
+
 			$this->load->library('instagram_api');
 
 			// Write to activity.log to make sure its working
@@ -60,20 +82,20 @@ class Callback extends CI_Controller {
 			$ALL = date("F j, Y, g:i a")." ".$myString."\r\n";
 			file_put_contents('activity.log', $ALL, FILE_APPEND);
 
-			$this->instagram_api->access_token = $this->Subscribe_model->get_access_token();
-		
+			$this->instagram_api->access_token = $this->subscribe_model->get_access_token();
+
 			$min_id = null;
 			$next_min_id = '';
 
-			$min_id = $this->Subscribe_model->min_id();
+			$min_id = $this->subscribe_model->min_id();
 
-			$hashtag = $this->Subscribe_model->get_hashtag( );
+			$hashtag = $this->subscribe_model->get_hashtag( );
 
 			$tags = $this->instagram_api->tagsRecent( $hashtag, '', $min_id );
 
 
 			if ( $tags ) {
-				
+
 				if ( property_exists( $tags->pagination, 'min_tag_id' ) ) {
 					$next_min_id = $tags->pagination->min_tag_id;
 				}
@@ -91,7 +113,7 @@ class Callback extends CI_Controller {
 
 							$profile_pic = $media->user->profile_picture;
 
-							
+
 							$caption = $media->caption->text;
 							$link = $media->link;
 							$low_res=$media->images->low_resolution->url;
@@ -130,9 +152,9 @@ class Callback extends CI_Controller {
 								//'loc_id' => $loc_id,
 							);
 
-							$this->Subscribe_model->add_tag( $data );
+							$this->subscribe_model->add_tag( $data );
 
-							
+
 						}
 
 					}
@@ -142,6 +164,6 @@ class Callback extends CI_Controller {
 		}
 
 	}
-	
+
 }
 
