@@ -15,7 +15,7 @@ Update 12.04.2013
 
 I realized I forgot a few things when I first committed, namely the htaccess file for mod rewrite of the index page. I also fixed some issues with the Subscribe model that wasn't loading properly because of some syntax issues.
 
-** If you can't get the .htaccess file to work, then just append index.php to the URL, like http://yoursite.com/livestagram/index.php/install/ 
+** If you can't get the .htaccess file to work, then just append index.php to the URL, like http://yoursite.com/livestagram/index.php?/install/ 
 
 
 Live Demonstration with hashtag #superman  
