@@ -5,7 +5,7 @@ Instagram real-time feed built on CodeIgniter.
 
 I wanted to quickly build an application in PHP that can display a live feed of Instagram photos based on a specific hashtag. I set up an Instagram Subscription to a hashtag, and when Instagram hits my callback page, I search for new photos with the tag and enter them in my database. On the frontend page I'm using AJAX long polling of my server to check for new data.
 
-This application allows for an adminstrator to "ban" photos using a simple admin panel. The admin panel receives a live feed from Instagram with virtually no delay, and the frontend page has a 2 minute delay.
+This application allows for an administrator to "ban" photos using a simple admin panel. The admin panel receives a live feed from Instagram with virtually no delay, and the frontend page has a 2 minute delay.
 
 This project was built as a subdirectory to a website, so it would be yoursite.com/livestagram. Obviously this can be changed to be a root directory. 
 
